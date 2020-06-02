@@ -1,0 +1,47 @@
+<html ng-app = "userApp">
+   <head> 
+      <title>AngularJS Application</title>
+    <base href="/">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controller/mainController.js"></script>
+    <script src="app/service/mainSvc.js"></script>
+    <script src="app/directive/datedirective.js"></script>
+   </head>
+   
+   <body  ng-controller="userdetailsCtrl as  userdetailsCon">
+   <div >
+    StartDate :<input type="text" ng-model="users.start_date" name="start_date" jqdatepicker />
+    EndDate :<input type="text" ng-model="users.end_date" name="end_date" jqdatepicker />
+    <input type="submit" value="submit" ng-click="userdetailsCon.fatchAUserAll(users)"/>
+    
+    <h2>{{userdetailsCon.userDataAll.length}}</h2>
+      <div style="overflow: auto;height: 400px;">
+        <table>
+            <tr>
+                <th style="width: 100px;">ID</th>
+                <th style="width: 100px;">City</th>
+                <th style="width: 100px;">StartDate</th>
+                <th style="width: 100px;">EndDate</th>
+                <th style="width: 100px;">Price</th>
+                <th style="width: 100px;">Status</th>
+                <th style="width: 100px;">Color</th>
+           </tr>
+            <tr ng-repeat="dataitem in userdetailsCon.userDataAll">
+                
+                <td>{{dataitem.id}}</td> 
+                <td>{{dataitem.city}}</td>
+                <td>{{dataitem.start_date}}</td>
+                <td>{{dataitem.end_date}}</td>
+                <td>{{dataitem.price}}</td>
+                <td>{{dataitem.status}}</td>
+                <td>{{dataitem.color}}</td>
+            </tr>
+        </table>
+    </div>
+  </div>
+   </div> 
+   </body>
+</html>
